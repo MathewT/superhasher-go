@@ -1,11 +1,16 @@
 package superhasher
 
 import (
-	log "github.com/Sirupsen/logrus"
+	"crypto/md5"
+	"fmt"
 )
 
 func Superhash(path string) string {
-	log.Printf("superhash called: %s", path)
-	ret := "superhasher"
-	return ret
+	return path
+}
+
+func calculateMD5(data []byte) string {
+	result := md5.Sum(data)
+	s := fmt.Sprintf("%x", result)
+	return s
 }
